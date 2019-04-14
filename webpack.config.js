@@ -17,25 +17,38 @@ const config = {
     filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+    alias: {
+      pixi: path.resolve(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
+      p2: path.resolve(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
+      phaser: path.resolve(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js')
+    }
+  },
   devtool: dev ? 'inline-source-map' : 'source-map',
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [dev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
-      }
+      },
+      { test: /pixi\.js$/, use: 'expose-loader?PIXI' },
+      { test: /p2\.js$/, use: 'expose-loader?p2' },
+      { test: /phaser-split\.js$/, use: 'expose-loader?Phaser' }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(dev),
-      __PIXI__: JSON.stringify('phaser-ce/build/custom/pixi.js'),
-      __p2__: JSON.stringify('phaser-ce/build/custom/p2.js'),
-      __Phaser__: JSON.stringify('phaser-ce/build/custom/phaser-split.js')
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'javascript app',
+      title: 'PhaserCE App',
       template: path.resolve(__dirname, 'src', 'index.html'),
       favicon: path.resolve(__dirname, 'src', 'favicon.png'),
       minify: dev ? false : {
@@ -62,7 +75,7 @@ if (dev) {
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
 } else {
   config.plugins.push(new MiniCssExtractPlugin({
-    filename: "[name].[hash].css",
+    filename: "[name].[hash].css"
   }));
   config.plugins.push(new ImageminPlugin({
     test: filename => {
