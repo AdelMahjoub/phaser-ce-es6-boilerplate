@@ -25,9 +25,9 @@ const config = {
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
-      pixi: path.resolve(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
-      p2: path.resolve(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
-      phaser: path.resolve(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js')
+      pixi: path.resolve(__dirname, 'node_modules', 'phaser-ce', 'build', 'custom', 'pixi.js'),
+      p2: path.resolve(__dirname, 'node_modules', 'phaser-ce', 'build', 'custom', 'p2.js'),
+      phaser: path.resolve(__dirname, 'node_modules', 'phaser-ce', 'build', 'custom', 'phaser-split.js')
     }
   },
   devtool: dev ? 'inline-source-map' : 'source-map',
