@@ -11,7 +11,7 @@ export const display = {
 export const config = {
   width: display.width,
   height: display.height,
-  renderer: Phaser.WEBGL_MULTI,
+  renderer: Phaser.AUTO,
   scaleMode: Phaser.ScaleManager.SHOW_ALL,
   alignH: true,
   alignV: true,
