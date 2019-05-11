@@ -22,24 +22,13 @@ const config = {
       chunks: 'all'
     }
   },
-  resolve: {
-    extensions: ['.ts', '.js'],
-    alias: {
-      pixi: path.resolve(__dirname, 'node_modules', 'phaser-ce', 'build', 'custom', 'pixi.js'),
-      p2: path.resolve(__dirname, 'node_modules', 'phaser-ce', 'build', 'custom', 'p2.js'),
-      phaser: path.resolve(__dirname, 'node_modules', 'phaser-ce', 'build', 'custom', 'phaser-split.js')
-    }
-  },
   devtool: dev ? 'inline-source-map' : 'source-map',
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [dev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      { test: /pixi\.js$/, use: 'expose-loader?PIXI' },
-      { test: /p2\.js$/, use: 'expose-loader?p2' },
-      { test: /phaser-split\.js$/, use: 'expose-loader?Phaser' }
+      }
     ]
   },
   plugins: [
@@ -48,7 +37,7 @@ const config = {
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'PhaserCE App',
+      title: 'Phaser-ce boilerplate',
       template: path.resolve(__dirname, 'src', 'index.html'),
       favicon: path.resolve(__dirname, 'src', 'favicon.png'),
       minify: dev ? false : {

@@ -10,10 +10,10 @@ export default class Boot extends Phaser.State {
   }
 
   preload() {
-
+    this.load.json('assets', 'assets/data/assets.json');
   }
 
   create() {
-    this.game.state.start(statesKeys.splash);
+    this.game.state.start(statesKeys.Preload);
   }
 }

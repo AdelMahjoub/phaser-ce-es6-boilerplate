@@ -1,8 +1,8 @@
 export const display = {
-  width: 640,
-  height: 360,
-  minWidth: 256,
-  minHeight: 144,
+  width: 1280,
+  height: 720,
+  minWidth: 640,
+  minHeight: 360,
   maxWidth: 3840,
   maxHeight: 2160
 }
@@ -20,11 +20,10 @@ export const config = {
 }
 
 export const statesKeys = {
-  boot: 'boot',
-  splash: 'splash',
-  preload: 'preload',
-  start: 'start',
-  main: 'main'
+  Boot: 'Boot',
+  Preload: 'Preload',
+  Start: 'Start',
+  Main: 'Main'
 }
 
 export const colorPalette = {
@@ -44,4 +43,31 @@ export const colorPalette = {
   indigo: 0x83769c,
   pink: 0xff77a8,
   peach: 0xffccaa,
+}
+
+export const assetsKeys = {
+  atlases: {
+    main: 'atlas'
+  },
+  fonts: {
+    neuropol: 'neuropol'
+  },
+  tiledBgs: {
+    starsPurple: 'purple.png',
+    starsBlue: 'blue.png'
+  },
+  buttons: {
+    blue: {
+      overFrame: 'blue_button01.png',
+      outFrame: 'blue_button03.png',
+      downFrame: 'blue_button01.png',
+      upFrame: 'blue_button03.png',
+    }
+  },
+  sprites: {
+    spaceShip: 'playerShip.png'
+  },
+  bullets: {
+    laser: 'laser.png'
+  }
 }

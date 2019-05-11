@@ -1,0 +1,18 @@
+[
+  {
+    "type": "bitmapFont",
+    "args": {
+      "key": "neuropol",
+      "textureUrl": "assets/fonts/neuropol.png",
+      "atlasUrl": "assets/fonts/neuropol.xml"
+    }
+  },
+  {
+    "type": "atlas",
+    "args": {
+      "key": "atlas",
+      "textureUrl": "assets/textures/atlas.png",
+      "atlasUrl": "assets/textures/atlas.json"
+    }
+  }
+]
